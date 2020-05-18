@@ -13,8 +13,9 @@ class Country(Resource):
 
     def get(self, name):
         today = str(date.today())
-        country = CountryModel.find_by_country(name,today)
-        if country:
+        country = CountryModel(name, today, **data)
+        country_data = country.find_by_country()
+        if country_data:
             return country.json()
         return {'message': 'Country not found'}, 404
 

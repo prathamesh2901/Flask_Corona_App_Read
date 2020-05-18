@@ -21,6 +21,5 @@ class CountryModel(db.Model):
     def json(self):
         return {'name': self.name, 'date': self.today, 'cases': self.cases, 'deaths': self.deaths, 'recoveries': self.recoveries}
 
-    @classmethod
-    def find_by_country(cls, name, date):
-        return cls.query.filter_by(name=name,date=date).first()
+    def find_by_country(cls, name, today):
+        return cls.query.filter_by(name=name,date=today).first()
