@@ -12,10 +12,12 @@ class CountryModel(db.Model):
 
     def __init__(self, name, date, cases, deaths, recoveries):
         self.name = name
+        self.date = date
         self.cases = cases
         self.deaths = deaths
         self.recoveries = recoveries
         self.date = date
+
 
 
     def json(self):
