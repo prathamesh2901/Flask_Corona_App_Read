@@ -1,5 +1,4 @@
 from flask_restful import Resource, reqparse
-from flask_jwt import jwt_required
 from models.country import CountryModel
 from datetime import date
 
@@ -12,10 +11,9 @@ class Country(Resource):
     parser.add_argument('recoveries', type = int, required = False,)
 
     def get(self, name):
-        today = str(date.today())
-        country = CountryModel(name, today, **data)
-        country_data = country.find_by_country()
-        if country_data:
+        today = date.today().isoformat()
+        country = CountryModel.find_by_country(name, today)
+        if country:
             return country.json()
         return {'message': 'Country not found'}, 404
 
