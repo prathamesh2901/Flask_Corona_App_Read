@@ -17,8 +17,6 @@ class CountryModel(db.Model):
         self.cases = cases
         self.deaths = deaths
         self.recoveries = recoveries
-        self.date = date
-
 
 
     def json(self):

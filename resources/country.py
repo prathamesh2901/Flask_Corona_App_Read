@@ -1,4 +1,3 @@
-
 from flask_restful import Resource, reqparse
 from models.country import CountryModel
 from cache.country import CountryCache
@@ -26,4 +25,3 @@ class Country(Resource):
 class Countries(Resource):
     def get(self):
         return {'countries': [ country.json() for country in CountryModel.query.all()]}
-
